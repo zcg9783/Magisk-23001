@@ -21,7 +21,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ ubuntu-latest, windows-latest, macOS-latest ]
+        os: [ ubuntu-22.04, windows-latest, macOS-latest ]
 
     steps:
       - name: Check out
@@ -58,7 +58,7 @@ jobs:
 
       - name: Cache NDK
         id: ndk-cache
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ${{ env.ANDROID_SDK_ROOT }}/ndk/magisk
           key: ${{ runner.os }}-ndk-${{ env.MAGISK_NDK_VERSION }}
